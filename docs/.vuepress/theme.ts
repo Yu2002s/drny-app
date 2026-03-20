@@ -9,14 +9,14 @@ export default hopeTheme({
   },
   logo: "https://images.jdynb.xyz/logo.png",
 
-  repo: "yu2002s", // Optional repo link
+  repo: "yu2002s/drny-app", // Optional repo link
 
   docsDir: "docs",
 
   locales: {
     "/": {
       // navbar
-      navbar: ["/", "/changelog/", "/download/", "/faq/", "/join/"],
+      navbar: ["/", "/changelog/", "/download/", "/faq/", "/join/", "/webview/"],
 
       // sidebar
       sidebar: {

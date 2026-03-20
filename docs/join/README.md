@@ -1,7 +1,7 @@
 ---
-title: 公众号
+title: 公众号/群组
 icon: wechat
-slidebar: false
+sidebar: false
 ---
 
 关注 `冬日暖雨` 官方公众号获取第一手软件资讯，版本迭代更新，和丰富的技术分享！
@@ -18,6 +18,10 @@ slidebar: false
 * bug反馈和新功能建议
 * 获取软件QQ交流群二维码
 :::
+
+## QQ交流反馈群
+
+1038112042
 
 ## 关注我们
 

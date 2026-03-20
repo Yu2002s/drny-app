@@ -18,6 +18,18 @@ sidebar: false
 确认你是否下载对了版本，老旧设备不支持64位版本。
 :::
 
+::: details 安装了还是没反应、没用
+这时候需要手动下载安装 [AndroidSystemWebView](https://www.apkmirror.com/apk/google-inc/android-system-webview/) 下载好之后进行安装即可
+
+这里提供以下下载地址:
+
+- [本平台自身维护](/webview/)
+- [ApkMirror](https://www.apkmirror.com/apk/google-inc/android-system-webview/) (需要梯子)
+- [123网盘下载](https://www.123865.com/s/km2hjv-WOuOA) (32位)
+- [Gitee下载](https://gitee.com/jdy2002/android-webview/releases)
+- [加入公众号获取](/join/)
+:::
+
 ### 安装
 
 ::: details 电视安装

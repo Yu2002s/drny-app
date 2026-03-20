@@ -36,6 +36,10 @@ features:
     icon: wechat
     details: 一键关注我们的微信公众号，获取一手干货，与我们进行实时互动。
     link: /join/
+  - title: 更新WebView
+    icon: webview
+    details: 提供WebView更新地址，方便用户对设备的WebView进行更新
+    link: /webview/
 
 copyright: false
 footer: 你的支持是我开发的动力
