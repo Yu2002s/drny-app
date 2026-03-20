@@ -1,0 +1,39 @@
+name: 自动部署 VuePress 到 1Panel 服务器
+
+on:
+  push:
+    branches:
+      - master
+      - main # 适配不同的主分支名称
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. 检出代码
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. 安装 Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # 3. 安装依赖并打包
+      - name: Install dependencies and Build
+        run: |
+          npm install
+          npm run build
+
+      # 4. 把打包好的静态文件通过 SSH 发送到 1Panel 服务器
+      - name: Deploy to 1Panel Server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_HOST }} # 你的服务器 IP
+          username: ${{ secrets.SERVER_USER }} # 你的服务器账号 (通常是 root)
+          password: ${{ secrets.SERVER_PASSWORD }} # 你的服务器密码 (如果不用密码，也可以改用密钥 key: ${{ secrets.SERVER_KEY }})
+          source: "docs/.vuepress/dist/*"
+          target: "/opt/1panel/apps/openresty/openresty/www/sites/app.jdynb.xyz/index" # ⚠️ 请务必替换为你 1Panel 真实的网站根目录
+          strip_components: 3 # 删除目录前缀(docs/.vuepress/dist)，只把里面的文件传进去
