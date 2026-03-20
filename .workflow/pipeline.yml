@@ -5,7 +5,7 @@ triggers:
   trigger: auto
   push:
     branches:
-      - master # 如果你的默认分支叫 main，请改成 main
+      - main # 如果你的默认分支叫 main，请改成 main
 
 stages:
   - name: BuildAndDeploy
