@@ -9,7 +9,21 @@ export default defineUserConfig({
   title: "冬日暖雨App发布中心",
   description: "汇聚冬日暖雨应用程序的最新版本、历史更新、下载地址及使用指南。",
 
-  bundler: viteBundler(),
+  bundler: viteBundler({
+    viteOptions: {
+      server: {
+        proxy: {
+          "/api": {
+            target: "http://localhost:8080",
+            changeOrigin: true,
+            rewrite: (path) => path.replace(/^\/api/, ""),
+          },
+        },
+      },
+    },
+  }),
+
+  port: 80,
 
   theme,
 
@@ -27,7 +41,7 @@ export default defineUserConfig({
       {
         name: "keywords",
         content:
-          "冬日暖雨 App, 软件发布, 版本更新, 官方下载, 历史版本, 公众号, 使用文档",
+          "冬日暖雨 App, DongYuTVWeb, 软件发布, 版本更新, 官方下载, 历史版本, 公众号, 使用文档",
       },
     ],
     ["meta", { name: "theme-color", content: "#3eaf7c" }],

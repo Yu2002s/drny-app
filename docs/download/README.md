@@ -14,11 +14,72 @@ sidebar: false
 
 一款可以在电视和手机上安装的看电视直播的软件，你可以非常轻松操作，代码**全部开源**，不用担心隐私问题。
 
-| 版本类型 | 适用设备及说明 | 支持架构 | 下载链接 |
-| :--- | :--- | :---: | :---: |
-| **WebView版** | 适合 Android 版本较高的手机或设备。体积较小。 | 64位 | [立即下载](https://gitee.com/jdy2002/DongYuTvWeb/releases/download/1.0.10-release/app_webview_release_v1.0.10-release_20260320_1123_all.apk) |
-| **X5内核版** | 专为电视或者部分老旧安卓设备优化，内置腾讯X5内核。 | 64位 | [立即下载](https://gitee.com/jdy2002/DongYuTvWeb/releases/download/1.0.10-release/app_arm64_release_v1.0.10-release_20260320_1120_all.apk) |
-| **X5内核版** | 专为电视或者部分老旧安卓设备优化，内置腾讯X5内核。 | 32位 | [立即下载](https://gitee.com/jdy2002/DongYuTvWeb/releases/download/1.0.10-release/app_arm32_release_v1.0.10-release_20260320_1122_all.apk) |
+<script setup>
+import { ref, onMounted } from 'vue';
+
+const releaseInfo = ref(null);
+
+onMounted(async () => {
+  try {
+    const response = await fetch('/api/update/check');
+    const res = await response.json();
+    if (res.code === 200) {
+      releaseInfo.value = res.data;
+    } else {
+      console.error('获取下载链接失败:', res.msg);
+    }
+  } catch (err) {
+    console.error('请求下载接口异常:', err);
+  }
+});
+</script>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">版本类型</th>
+      <th style="text-align:left">适用设备及说明</th>
+      <th style="text-align:center">支持架构</th>
+      <th style="text-align:center">下载链接</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><strong>WebView版</strong></td>
+      <td style="text-align:left">适合 Android 版本较高的手机或设备。体积较小。</td>
+      <td style="text-align:center">64位</td>
+      <td style="text-align:center">
+        <a v-if="releaseInfo" :href="releaseInfo.url" target="_blank">立即下载</a>
+        <span v-else>请求中...</span>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><strong>X5内核版</strong></td>
+      <td style="text-align:left">专为电视或者部分老旧安卓设备优化，内置腾讯X5内核。</td>
+      <td style="text-align:center">64位</td>
+      <td style="text-align:center">
+        <a v-if="releaseInfo" :href="releaseInfo.urlX5Armeabi" target="_blank">立即下载</a>
+        <span v-else>请求中...</span>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><strong>X5内核版</strong></td>
+      <td style="text-align:left">专为电视或者部分老旧安卓设备优化，内置腾讯X5内核。</td>
+      <td style="text-align:center">32位</td>
+      <td style="text-align:center">
+        <a v-if="releaseInfo" :href="releaseInfo.urlX5Arm64v8a" target="_blank">立即下载</a>
+        <span v-else>请求中...</span>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="4" style="text-align:center">
+        最新版本：{{ releaseInfo?.versionName }}({{ releaseInfo?.versionCode }})，发布时间：{{ releaseInfo?.updateTime }}
+      </td>
+    </tr>
+  </tfoot>
+</table>
 
 点此查看：[版本更新记录](/changelog/)
 
