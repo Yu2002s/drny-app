@@ -58,7 +58,7 @@ onMounted(async () => {
       <td style="text-align:left">专为电视或者部分老旧安卓设备优化，内置腾讯X5内核。</td>
       <td style="text-align:center">64位</td>
       <td style="text-align:center">
-        <a v-if="releaseInfo" :href="releaseInfo.urlX5Armeabi" target="_blank">立即下载</a>
+        <a v-if="releaseInfo" :href="releaseInfo.urlX5Arm64v8a" target="_blank">立即下载</a>
         <span v-else>请求中...</span>
       </td>
     </tr>
@@ -67,7 +67,7 @@ onMounted(async () => {
       <td style="text-align:left">专为电视或者部分老旧安卓设备优化，内置腾讯X5内核。</td>
       <td style="text-align:center">32位</td>
       <td style="text-align:center">
-        <a v-if="releaseInfo" :href="releaseInfo.urlX5Arm64v8a" target="_blank">立即下载</a>
+        <a v-if="releaseInfo" :href="releaseInfo.urlX5Armeabi" target="_blank">立即下载</a>
         <span v-else>请求中...</span>
       </td>
     </tr>
