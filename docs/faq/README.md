@@ -34,6 +34,8 @@ sidebar: false
 
 ### 安装
 
+[禁用软件包安装程序手把手教程](https://mp.weixin.qq.com/s/-RqeN9nOmM-4PtX8kW8Wtw)
+
 ::: details WIFI 远程安装
 
 1. 目前 `1.0.13`以上版本支持远程安装，需要用户在手机端，打开 设置 -> 远程安装 -> 通过 ip 和 端口连接到电视，点击远程安装即可
