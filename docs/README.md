@@ -13,8 +13,8 @@ actions:
     link: /download/
     type: primary
 
-  - text: 查看版本历史
-    link: /changelog/
+  - text: 问题解答
+    link: /faq/
 
 features:
   - title: 极速下载
