@@ -34,7 +34,7 @@ sidebar: false
 
 ### 安装
 
-[禁用软件包安装程序手把手教程](https://mp.weixin.qq.com/s/-RqeN9nOmM-4PtX8kW8Wtw)
+[电视不能安装App点我查看教程](https://mp.weixin.qq.com/s/-RqeN9nOmM-4PtX8kW8Wtw)
 
 ::: details WIFI 远程安装
 
@@ -81,6 +81,16 @@ reboot # 重启设备
 ```
 
 > 注意：定制系统可能无效
+> 由于设置默认桌面妨碍正常使用，现以移除
+
+:::
+
+### 频道配置
+
+::: details 电视开机自启
+
+1. 目前仅支持手机端进行设置
+2. 请打开[github](https://github.com/yu2002s/DongYuTVWeb), 并查阅 README 
 
 :::
 

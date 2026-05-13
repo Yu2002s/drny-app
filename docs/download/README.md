@@ -102,3 +102,71 @@ onMounted(async () => {
 - [Github](https://github.com/yu2002s/DongYuTVWeb)
 
 ---
+
+## MusicKiller
+
+一个基于Android Material Design3的音乐播放器，简洁好用不臃肿，支持无损音质。
+
+<script setup>
+import { ref, onMounted } from 'vue';
+
+const releaseInfo = ref(null);
+
+onMounted(async () => {
+  try {
+    const response = await fetch('/api/update/check?channel=music');
+    const res = await response.json();
+    if (res.code === 200) {
+      releaseInfo.value = res.data;
+    } else {
+      console.error('获取下载链接失败:', res.msg);
+    }
+  } catch (err) {
+    console.error('请求下载接口异常:', err);
+  }
+});
+</script>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">版本类型</th>
+      <th style="text-align:left">版本</th>
+      <th style="text-align:center">支持架构</th>
+      <th style="text-align:center">日志</th>
+      <th style="text-align:center">下载链接</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><strong>MusicKiller</strong></td>
+      <td style="text-align:left">{{ releaseInfo?.versionName }}</td>
+      <td style="text-align:center">64位</td>
+      <td style="text-align:center">
+        {{ releaseInfo?.content }}
+      </td>
+      <td style="text-align:center">
+        <a v-if="releaseInfo" :href="releaseInfo.urlX5Armeabi" target="_blank">立即下载</a>
+        <span v-else>请求中...</span>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="5" style="text-align:center">
+        最新版本：{{ releaseInfo?.versionName }}({{ releaseInfo?.versionCode }})，发布时间：{{ releaseInfo?.updateTime }}
+      </td>
+    </tr>
+  </tfoot>
+</table>
+
+开源仓库地址：
+
+- [Gitee](https://gitee.com/jdy2002/MusicKiller)
+- [Github](https://github.com/yu2002s/MusicKiller)
+
+## SplitLanzou
+
+支持切片上传文件的第三方蓝奏云
+
+[SplitLanzou](https://github.com/Yu2002s/SplitLanzou)
