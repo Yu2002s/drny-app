@@ -4,11 +4,15 @@ icon: download
 sidebar: false
 ---
 
-这里将发布最新版本App更新！
+这里将发布最新版本App更新！加入[公众号/群组](/join/)了解更多信息
 
 ::: tip 最安全的环境
 请认准本站点提供的最新官方版本，避免使用第三方未授权分发版本，以保障数据安全与账号安全。
 :::
+
+[1. DongYuTVWeb(我的电视)](#dongyutvweb)
+[2. MusicKiller(听歌)](#musickiller)
+[3. SplitLanzou(网盘)](#splitlanzou)
 
 ## DongYuTVWeb
 
@@ -106,6 +110,10 @@ onMounted(async () => {
 
 ## MusicKiller
 
+音乐播放器
+
+### 手机版
+
 一个基于Android Material Design3的音乐播放器，简洁好用不臃肿，支持无损音质。
 
 [立即下载](https://lz.qaiu.top/parser?url=https://jdy2002.lanzoue.com/iYe2Q3kthing)
@@ -114,6 +122,14 @@ onMounted(async () => {
 
 - [Gitee](https://gitee.com/jdy2002/MusicKiller)
 - [Github](https://github.com/yu2002s/MusicKiller)
+
+### 电脑版
+
+一个基于 Electron + Vite + Vue 的音乐播放器，简单好用不臃肿
+
+[网盘下载](https://jdy2002.lanzoue.com/b00ct69bgf) (密码:1olm)
+
+[Github](https://github.com/yu2002s/music-killer-pc)
 
 ## SplitLanzou
 
