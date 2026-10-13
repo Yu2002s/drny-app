@@ -1,0 +1,624 @@
+﻿// ============================================================
+//  冬日暖雨 App · 现代主题增强样式
+//  在此覆盖 vuepress-theme-hope 默认样式
+// ============================================================
+@use "@sass-palette/hope-config";
+
+// ============================================================
+//  1. 全局基础 Global
+// ============================================================
+:root {
+  // 品牌渐变
+  --drny-gradient: linear-gradient(120deg, #6366f1 0%, #8b5cf6 45%, #22d3ee 100%);
+  --drny-gradient-soft: linear-gradient(
+    120deg,
+    rgb(99 102 241 / 14%),
+    rgb(139 92 246 / 10%) 50%,
+    rgb(34 211 238 / 14%)
+  );
+
+  // 玻璃拟态
+  --drny-glass-bg: rgb(255 255 255 / 72%);
+  --drny-glass-border: rgb(255 255 255 / 60%);
+  --drny-glass-shadow: 0 8px 32px rgb(15 23 42 / 10%);
+
+  // 圆角与阴影
+  --drny-radius: 16px;
+  --drny-radius-sm: 10px;
+  --drny-radius-lg: 24px;
+  --drny-shadow-sm: 0 1px 2px rgb(15 23 42 / 6%), 0 2px 8px rgb(15 23 42 / 5%);
+  --drny-shadow: 0 4px 12px rgb(15 23 42 / 8%), 0 12px 32px rgb(15 23 42 / 8%);
+  --drny-shadow-lg: 0 8px 24px rgb(15 23 42 / 10%), 0 24px 64px rgb(15 23 42 / 12%);
+  --drny-ring: 0 0 0 3px rgb(99 102 241 / 22%);
+}
+
+[data-theme="dark"] {
+  --drny-glass-bg: rgb(22 32 58 / 62%);
+  --drny-glass-border: rgb(148 163 184 / 14%);
+  --drny-glass-shadow: 0 8px 32px rgb(2 6 23 / 45%);
+  --drny-shadow-sm: 0 1px 2px rgb(2 6 23 / 40%), 0 2px 8px rgb(2 6 23 / 30%);
+  --drny-shadow: 0 4px 12px rgb(2 6 23 / 45%), 0 12px 32px rgb(2 6 23 / 40%);
+  --drny-shadow-lg: 0 8px 24px rgb(2 6 23 / 50%), 0 24px 64px rgb(2 6 23 / 45%);
+  --drny-ring: 0 0 0 3px rgb(129 140 248 / 28%);
+}
+
+// 页面整体背景：柔和光晕
+body {
+  background-color: var(--vp-c-bg);
+  background-image:
+    radial-gradient(60rem 40rem at 12% -8%, rgb(99 102 241 / 10%), transparent 60%),
+    radial-gradient(50rem 34rem at 100% 0%, rgb(34 211 238 / 8%), transparent 55%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+}
+
+// 细滚动条
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: var(--vp-c-accent-soft);
+  background-clip: content-box;
+
+  &:hover {
+    background: var(--vp-c-accent-bg);
+    background-clip: content-box;
+  }
+}
+
+// 选中文字
+::selection {
+  background: var(--vp-c-accent-soft);
+  color: var(--vp-c-text);
+}
+
+// ============================================================
+//  2. 导航栏 Navbar
+// ============================================================
+.vp-navbar {
+  border-bottom: 1px solid var(--vp-c-divider);
+  background: var(--drny-glass-bg);
+  box-shadow: none;
+
+  backdrop-filter: saturate(180%) blur(16px);
+}
+
+.vp-nav-logo {
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.vp-site-name {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+
+  background: var(--drny-gradient);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.vp-nav-item {
+  > .auto-link {
+    padding: 0 0.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+
+    &::before {
+      inset: auto 50% calc(50% - 1.05rem);
+      height: 2px;
+      background: var(--drny-gradient);
+    }
+
+    &:hover {
+      background: var(--vp-c-control);
+    }
+
+    &:hover,
+    &.route-link-active {
+      &::before {
+        inset: auto 0.5rem calc(50% - 1.05rem);
+      }
+    }
+  }
+}
+
+.vp-nav-links {
+  font-size: 0.92rem;
+}
+
+// ============================================================
+//  3. 侧边栏 Sidebar
+// ============================================================
+.vp-sidebar {
+  border-inline-end: 1px solid var(--vp-c-divider);
+  background: var(--sidebar-c-bg);
+  box-shadow: none;
+
+  @media (min-width: hope-config.$pc) {
+    background: transparent;
+    backdrop-filter: none;
+  }
+}
+
+.vp-sidebar-link {
+  border-radius: var(--drny-radius-sm);
+  transition:
+    background var(--vp-t-color),
+    color var(--vp-t-color),
+    transform var(--vp-t-transform);
+
+  &:hover {
+    transform: translateX(2px);
+  }
+
+  &.active {
+    background: var(--vp-c-accent-soft);
+    box-shadow: inset 3px 0 0 var(--vp-c-accent);
+  }
+}
+
+.vp-sidebar-links > li > .vp-sidebar-link {
+  font-weight: 600;
+}
+
+// ============================================================
+//  4. 首页 Hero
+// ============================================================
+.vp-hero-info-wrapper {
+  overflow: hidden;
+}
+
+.vp-hero-mask {
+  &::after {
+    background:
+      linear-gradient(180deg, rgb(255 255 255 / 55%) 0%, rgb(255 255 255 / 92%) 78%, var(--vp-c-bg) 100%),
+      var(--drny-gradient-soft);
+  }
+
+  &.dark::after,
+  [data-theme="dark"] &::after {
+    background:
+      linear-gradient(180deg, rgb(11 16 32 / 55%) 0%, rgb(11 16 32 / 88%) 78%, var(--vp-c-bg) 100%),
+      var(--drny-gradient-soft);
+  }
+}
+
+.vp-hero-image {
+  filter: drop-shadow(0 18px 40px rgb(99 102 241 / 28%));
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: drny-float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes drny-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+.vp-hero-title {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+
+  background: var(--drny-gradient);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: drny-gradient-pan 8s ease infinite;
+  }
+}
+
+@keyframes drny-gradient-pan {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+#main-description {
+  max-width: 38rem;
+  color: var(--vp-c-text-mute);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.vp-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+
+  @media (max-width: hope-config.$pad) {
+    justify-content: center;
+  }
+}
+
+.vp-hero-action {
+  margin: 0;
+  padding: 0.7em 1.75rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+
+  font-weight: 600;
+  font-size: 1.05rem;
+
+  transition:
+    transform var(--vp-t-transform),
+    box-shadow var(--vp-t-transform),
+    background var(--vp-t-color),
+    color var(--vp-t-color);
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &.primary {
+    background: var(--drny-gradient);
+    box-shadow: 0 8px 24px rgb(99 102 241 / 32%);
+
+    &:hover {
+      box-shadow: 0 12px 32px rgb(99 102 241 / 42%);
+    }
+  }
+
+  &.default {
+    border-color: var(--vp-c-border);
+    background: var(--drny-glass-bg);
+    backdrop-filter: blur(10px);
+
+    &:hover {
+      border-color: var(--vp-c-accent-bg);
+      color: var(--vp-c-accent);
+    }
+  }
+}
+
+// ============================================================
+//  5. 首页功能区 Feature
+// ============================================================
+.vp-feature {
+  padding-block: 2.5rem;
+}
+
+.vp-feature-header {
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.vp-feature-item {
+  overflow: hidden;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: var(--drny-radius);
+  background: var(--vp-c-bg-elv);
+  box-shadow: var(--drny-shadow-sm);
+
+  transition:
+    transform var(--vp-t-transform),
+    box-shadow var(--vp-t-transform),
+    border-color var(--vp-t-color);
+
+  &::after {
+    content: "";
+
+    position: absolute;
+    inset: 0 0 auto;
+
+    height: 3px;
+
+    background: var(--drny-gradient);
+
+    opacity: 0;
+
+    transition: opacity var(--vp-t-color);
+  }
+
+  &.link {
+    &:hover {
+      border-color: transparent;
+      background-color: var(--vp-c-bg-elv);
+      box-shadow: var(--drny-shadow-lg);
+      transform: translateY(-6px);
+
+      &::after {
+        opacity: 1;
+      }
+
+      &::before {
+        content: none;
+      }
+    }
+
+    &:active {
+      transform: translateY(-2px) scale(0.99);
+    }
+  }
+
+  .vp-icon {
+    color: var(--vp-c-accent);
+  }
+}
+
+.vp-feature-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  font-weight: 700;
+
+  .vp-icon {
+    margin-inline-end: 0;
+  }
+}
+
+// ============================================================
+//  6. 正文排版 Content
+// ============================================================
+[vp-content]:not(.custom) {
+  #markdown-content > {
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    h2 {
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--vp-c-divider);
+
+      &::before {
+        content: "";
+
+        display: inline-block;
+
+        width: 0.3em;
+        height: 0.9em;
+        margin-inline-end: 0.5em;
+        border-radius: 4px;
+
+        background: var(--drny-gradient);
+
+        vertical-align: -0.08em;
+      }
+    }
+  }
+}
+
+#markdown-content {
+  a {
+    font-weight: 500;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  strong {
+    color: var(--vp-c-text);
+  }
+
+  blockquote {
+    margin: 1.25rem 0;
+    padding: 0.5rem 1.25rem;
+    border-inline-start: 4px solid var(--vp-c-accent);
+    border-radius: 0 var(--drny-radius-sm) var(--drny-radius-sm) 0;
+    background: var(--vp-c-accent-soft);
+    color: var(--vp-c-text-mute);
+
+    > p {
+      margin: 0.25rem 0;
+    }
+  }
+
+  hr {
+    height: 1px;
+    margin: 2rem 0;
+    border: none;
+    background: linear-gradient(90deg, transparent, var(--vp-c-border) 20%, var(--vp-c-border) 80%, transparent);
+  }
+
+  img {
+    border-radius: var(--drny-radius-sm);
+  }
+
+  // 行内代码
+  :not(pre) > code {
+    padding: 0.15em 0.45em;
+    border: 1px solid var(--vp-c-divider);
+    border-radius: 6px;
+    background: var(--vp-c-bg-alt);
+    color: var(--vp-c-accent);
+    font-size: 0.875em;
+  }
+}
+
+// ============================================================
+//  7. 表格 Table
+// ============================================================
+#markdown-content table {
+  display: table;
+  overflow: hidden;
+
+  width: 100%;
+  margin: 1.5rem 0;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: var(--drny-radius);
+  border-collapse: separate;
+  border-spacing: 0;
+
+  box-shadow: var(--drny-shadow-sm);
+
+  @media (max-width: hope-config.$tablet) {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+#markdown-content tr {
+  border-top: none;
+  background: var(--vp-c-bg-elv);
+
+  &:nth-child(2n) {
+    background: var(--vp-c-bg-alt);
+  }
+
+  &:not(:last-child) td,
+  &:not(:last-child) th {
+    border-bottom: 1px solid var(--vp-c-divider);
+  }
+}
+
+#markdown-content th,
+#markdown-content td {
+  padding: 0.75em 1.1em;
+  border: none;
+}
+
+#markdown-content thead th {
+  background: var(--vp-c-bg-alt);
+  color: var(--vp-c-text);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+#markdown-content tbody tr {
+  transition: background var(--vp-t-color);
+
+  &:hover {
+    background: var(--vp-c-accent-soft);
+  }
+}
+
+#markdown-content tfoot td {
+  color: var(--vp-c-text-mute);
+  font-size: 0.9em;
+}
+
+// ============================================================
+//  8. 提示框 Hint
+// ============================================================
+.hint-container {
+  &.tip,
+  &.info,
+  &.warning,
+  &.caution,
+  &.important,
+  &.note {
+    padding: 0.9em 1.2em;
+    border: 1px solid transparent;
+    border-inline-start-width: 4px;
+    border-radius: var(--drny-radius-sm);
+    box-shadow: var(--drny-shadow-sm);
+  }
+
+  &.details {
+    border: 1px solid var(--vp-c-divider);
+    border-radius: var(--drny-radius-sm);
+    background: var(--vp-c-bg-alt);
+  }
+}
+
+// ============================================================
+//  9. 代码块 Code
+// ============================================================
+:root {
+  --code-border-radius: 12px;
+}
+
+div[class*="language-"] {
+  border: 1px solid var(--vp-c-divider);
+  box-shadow: var(--drny-shadow-sm);
+}
+
+// ============================================================
+//  10. 页面导航 / 页脚 Footer
+// ============================================================
+.vp-page-nav {
+  border-top: 1px solid var(--vp-c-divider);
+
+  .auto-link {
+    border: 1px solid var(--vp-c-border);
+    border-radius: var(--drny-radius-sm);
+    transition:
+      transform var(--vp-t-transform),
+      border-color var(--vp-t-color),
+      background var(--vp-t-color);
+
+    &:hover {
+      border-color: var(--vp-c-accent-bg);
+      background: var(--vp-c-accent-soft);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.vp-footer-wrapper {
+  border-top: 1px solid var(--vp-c-divider);
+  background: transparent;
+}
+
+.vp-toc-link {
+  border-radius: 6px;
+}
+
+.vp-toc-item {
+  &:hover > .vp-toc-link {
+    color: var(--vp-c-accent);
+  }
+}
+
+// 回到顶部按钮
+.back-to-top {
+  border-radius: 14px;
+  box-shadow: var(--drny-shadow);
+}
+
+// ============================================================
+//  11. 组件 VPCard / Badge 等
+// ============================================================
+.vp-card,
+.card {
+  border-radius: var(--drny-radius);
+  box-shadow: var(--drny-shadow-sm);
+}
+
+.vp-badge {
+  border-radius: 999px;
+}
+
+// ============================================================
+//  12. 无障碍：减少动效偏好
+// ============================================================
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

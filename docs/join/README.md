@@ -1,6 +1,6 @@
 ---
 title: 公众号/群组
-icon: wechat
+icon: mdi:wechat
 sidebar: false
 ---
 

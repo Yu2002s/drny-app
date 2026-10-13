@@ -1,0 +1,99 @@
+﻿// ============================================================
+//  现代设计令牌 (Modern design tokens)
+//  覆盖 vuepress-theme-hope 默认调色板
+//  注意：使用普通赋值（非 !default）以覆盖主题默认值
+// ============================================================
+
+// ---------- 背景 Background ----------
+$vp-c-bg: (
+  light: #ffffff,
+  dark: #0b1020,
+);
+$vp-c-bg-alt: (
+  light: #f4f6fc,
+  dark: #111a2e,
+);
+$vp-c-bg-elv: (
+  light: #ffffff,
+  dark: #16203a,
+);
+
+// ---------- 文字 Text ----------
+$vp-c-text: (
+  light: #1e2433,
+  dark: rgb(226 232 240 / 92%),
+);
+
+// ---------- 描边 Border / Divider ----------
+$vp-c-border: (
+  light: #d9dfeb,
+  dark: #2b3757,
+);
+$vp-c-divider: (
+  light: #e9edf5,
+  dark: #1e2942,
+);
+
+// ---------- 阴影 Shadow ----------
+$vp-c-shadow: (
+  light: rgb(15 23 42 / 8%),
+  dark: rgb(2 6 23 / 55%),
+);
+
+// ---------- 控件 Control ----------
+$vp-c-control: (
+  light: rgb(99 102 241 / 8%),
+  dark: rgb(148 163 184 / 12%),
+);
+$vp-c-control-hover: (
+  light: rgb(99 102 241 / 15%),
+  dark: rgb(148 163 184 / 20%),
+);
+$vp-c-control-disabled: (
+  light: #eef1f7,
+  dark: #26314d,
+);
+
+// ---------- 主题强调色 Accent ----------
+// 基于 indigo (#6366f1) 手工调校，保证亮/暗模式对比度
+$vp-c-accent: (
+  light: #3f4fd8,
+  dark: #a5b4fc,
+);
+$vp-c-accent-bg: (
+  light: #4f5cf0,
+  dark: #7c88f5,
+);
+$vp-c-accent-hover: (
+  light: #6875f5,
+  dark: #8f9bf7,
+);
+$vp-c-accent-soft: (
+  light: rgb(99 102 241 / 12%),
+  dark: rgb(129 140 248 / 18%),
+);
+$vp-c-accent-text: var(--vp-c-white);
+
+// ---------- 字体 Font ----------
+$vp-font: '"Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif';
+$vp-font-heading: $vp-font;
+$vp-font-mono: 'ui-monospace, "JetBrains Mono", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", monospace';
+
+// ---------- 布局尺寸 Layout metrics ----------
+$navbar-height: 4rem;
+$navbar-padding-x: 1.75rem;
+$navbar-padding-y: 0.75rem;
+$navbar-mobile-height: 3.5rem;
+$navbar-mobile-padding-x: 1rem;
+$navbar-mobile-padding-y: 0.5rem;
+
+$sidebar-width: 17rem;
+$sidebar-mobile-width: 16rem;
+
+$content-width: 840px;
+$wide-content-width: 1020px;
+$home-page-width: 1200px;
+
+// ---------- 动效 Motion ----------
+$vp-t-color: "0.25s cubic-bezier(0.4, 0, 0.2, 1)";
+$vp-t-transform: "0.3s cubic-bezier(0.4, 0, 0.2, 1)";

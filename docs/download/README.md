@@ -1,6 +1,6 @@
 ---
 title: 下载中心
-icon: download
+icon: mdi:download
 sidebar: false
 ---
 
@@ -116,7 +116,7 @@ onMounted(async () => {
 
 一个基于Android Material Design3的音乐播放器，简洁好用不臃肿，支持无损音质。
 
-[立即下载](https://lz.qaiu.top/parser?url=https://jdy2002.lanzoue.com/iYe2Q3kthing)
+[立即下载](https://lz.qaiu.top/parser?url=https://jdy2002.lanzoue.com/imCNE43mvyaf)
 
 开源仓库地址：
 

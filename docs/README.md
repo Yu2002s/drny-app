@@ -1,44 +1,47 @@
----
+﻿---
 home: true
-icon: home
+icon: mdi:home
 title: 首页
 heroImage: https://images.jdynb.xyz/logo.png
+heroFullScreen: false
 bgImage: https://images.jdynb.xyz/6-light.svg
 bgImageDark: https://images.jdynb.xyz/6-dark.svg
 heroText: 冬日暖雨App发布中心
 tagline: 发现新乐趣：软件版本历史、极速下载与优质服务指南。
-
 actions:
   - text: 立即下载最新版
     link: /download/
     type: primary
+    icon: mdi:download
 
   - text: 问题解答
     link: /faq/
+    icon: mdi:help-circle-outline
 
 features:
   - title: 极速下载
-    icon: download
+    icon: mdi:rocket-launch
     details: 提供各平台客户端的高速下载链接，一键获取最新版本。
     link: /download/
 
   - title: 版本动态
-    icon: update
+    icon: mdi:update
     details: 详细记录每次版本更新的内容、修复及历史版本存档，随时回切。
     link: /changelog/
 
   - title: 问题解答
-    icon: proposal
+    icon: mdi:frequently-asked-questions
     details: 常见问题与解决方案沉淀，帮助您快速解决使用中遇到的各种问题。
     link: /faq/
-    
+
   - title: 交流反馈
-    icon: wechat
+    icon: mdi:wechat
     details: 一键关注我们的微信公众号，获取一手干货，与我们进行实时互动。
     link: /join/
-  - title: 更新WebView
-    icon: webview
-    details: 提供WebView更新地址，方便用户对设备的WebView进行更新
+
+  - title: 更新 WebView
+    icon: mdi:web
+    details: 提供 WebView 更新地址，方便用户对设备的 WebView 进行更新。
     link: /webview/
 
 copyright: false

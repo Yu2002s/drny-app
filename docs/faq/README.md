@@ -1,6 +1,6 @@
 ---
 title: 问题中心
-icon: proposal
+icon: mdi:frequently-asked-questions
 sidebar: false
 ---
 
@@ -90,7 +90,7 @@ reboot # 重启设备
 
 ### 频道配置
 
-::: details 电视开机自启
+::: details 如何配置
 
 1. 目前仅支持手机端进行设置
 2. 请打开[github](https://github.com/yu2002s/DongYuTVWeb), 并查阅 README 

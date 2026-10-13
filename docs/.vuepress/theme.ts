@@ -1,4 +1,4 @@
-import { hopeTheme } from "vuepress-theme-hope";
+﻿import { hopeTheme } from "vuepress-theme-hope";
 
 export default hopeTheme({
   hostname: "https://app.jdynb.xyz", // set proper hostname for seo plugin feature
@@ -13,10 +13,30 @@ export default hopeTheme({
 
   docsDir: "docs",
 
+  // 外观：主题色选择器（颜色列表在 styles/config.scss 中定义）+ 全屏按钮
+  themeColor: true,
+  fullscreen: true,
+  print: false,
+
+  // 导航栏：移动端滚动时自动隐藏
+  navbarAutoHide: "mobile",
+  navbarLayout: {
+    start: ["Brand"],
+    center: ["Links"],
+    end: ["Repo", "Outlook"],
+  },
+
   locales: {
     "/": {
       // navbar
-      navbar: ["/", "/changelog/", "/download/", "/faq/", "/join/", "/webview/"],
+      navbar: [
+        "/",
+        "/changelog/",
+        "/download/",
+        "/faq/",
+        "/join/",
+        "/webview/",
+      ],
 
       // sidebar
       sidebar: {
@@ -27,7 +47,7 @@ export default hopeTheme({
       },
 
       displayFooter: true,
-      footer: "冬日暖雨App发布",
+      footer: "冬日暖雨 App 发布中心 · 持续更新",
       copyright: "Copyright © 2026 冬日暖雨",
 
       metaLocales: {
@@ -41,6 +61,11 @@ export default hopeTheme({
     blog: false,
 
     seo: true, // Generate correct meta-tags, sitemap if hostname set
+
+    // 使用 iconify 图标集，统一图标风格
+    icon: {
+      assets: "iconify",
+    },
 
     components: {
       components: ["Badge", "VPCard"], // Use built in styling tools

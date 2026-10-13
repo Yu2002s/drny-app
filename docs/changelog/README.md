@@ -1,6 +1,6 @@
 ---
 title: 更新记录
-icon: update
+icon: mdi:update
 sidebar: false
 ---
 
