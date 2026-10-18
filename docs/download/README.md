@@ -57,21 +57,21 @@ onMounted(async () => {
   <tbody>
     <tr>
       <td style="text-align:left"><strong>WebView版</strong></td>
-      <td style="text-align:left">适合 Android 版本较高的手机或设备。体积较小。</td>
-      <td style="text-align:center">64位</td>
       <td style="text-align:center">
         <a v-if="releaseInfo" :href="releaseInfo.url" target="_blank">立即下载</a>
         <span v-else>请求中...</span>
       </td>
+      <td style="text-align:left">适合 Android 版本较高的手机或设备。体积较小。</td>
+      <td style="text-align:center">64位</td>
     </tr>
     <tr>
       <td style="text-align:left"><strong>X5内核版</strong></td>
-      <td style="text-align:left">专为电视或者部分老旧安卓设备优化，内置腾讯X5内核。</td>
-      <td style="text-align:center">64位</td>
-      <td style="text-align:center">
+       <td style="text-align:center">
         <a v-if="releaseInfo" :href="releaseInfo.urlX5Arm64v8a" target="_blank">立即下载</a>
         <span v-else>请求中...</span>
       </td>
+      <td style="text-align:left">专为电视或者部分老旧安卓设备优化，内置腾讯X5内核。</td>
+      <td style="text-align:center">64位</td>
     </tr>
     <tr>
       <td style="text-align:left"><strong>X5内核版</strong></td>
